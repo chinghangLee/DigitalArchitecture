@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>分類索引 · 數位建築脈絡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="cards">
+  <div id="nav"></div>
+
+  <main class="page">
+    <div class="page-header">
+      <div class="kicker">03 / Cards</div>
+      <h1>分類索引</h1>
+      <p class="lead">以類別與時期篩選,或直接搜尋名稱與內容。適合查資料、找關鍵字。</p>
+    </div>
+
+    <div class="cards-filter">
+      <div class="cards-filter-group">
+        <span class="cards-filter-label">類別</span>
+        <button class="filter-chip active" data-filter="type" data-value="all">全部</button>
+        <button class="filter-chip" data-filter="type" data-value="person">人物</button>
+        <button class="filter-chip" data-filter="type" data-value="tool">工具</button>
+        <button class="filter-chip" data-filter="type" data-value="concept">概念</button>
+        <button class="filter-chip" data-filter="type" data-value="project">案例</button>
+        <button class="filter-chip" data-filter="type" data-value="lab">實驗室</button>
+      </div>
+      <input type="text" class="search-box" id="search" placeholder="搜尋名稱或內容…" />
+    </div>
+
+    <div class="cards-filter" style="margin-top: -16px;">
+      <div class="cards-filter-group">
+        <span class="cards-filter-label">時期</span>
+        <button class="filter-chip active" data-filter="period" data-value="all">全部</button>
+        <span id="period-filters"></span>
+      </div>
+    </div>
+
+    <div class="cards-count" id="count"></div>
+    <div class="cards-grid" id="grid"></div>
+  </main>
+
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    Digital Architecture Lineage · 起手骨架 v0.1
+  </footer>
+
+  <script src="data/entities.js"></script>
+  <script src="js/wiki.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/cards.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

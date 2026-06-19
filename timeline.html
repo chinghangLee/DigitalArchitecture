@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>時間軸 · 數位建築脈絡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="timeline">
+  <div id="nav"></div>
+
+  <main class="page" style="max-width: 100%; padding-bottom: 0;">
+    <div style="max-width: 1180px; margin: 0 auto; padding: 0 28px;">
+      <div class="page-header">
+        <div class="kicker">01 / Timeline</div>
+        <h1>時間軸</h1>
+        <p class="lead">七個時期橫向展開,每個時期內依照「人物 / 工具 / 概念 / 案例 / 實驗室」分行,點擊任何條目看細節。</p>
+      </div>
+    </div>
+
+    <div class="timeline-container">
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    Digital Architecture Lineage · 起手骨架 v0.1
+  </footer>
+
+  <script src="data/entities.js"></script>
+  <script src="js/wiki.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/timeline.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

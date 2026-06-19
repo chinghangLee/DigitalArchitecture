@@ -1,0 +1,140 @@
+// 章節閱讀視圖 — 支援小節 sections[] + 兩層大綱 TOC + 小節捲動高亮
+(function () {
+  const data = window.DATA;
+  const periodMap = Object.fromEntries(data.periods.map(p => [p.id, p]));
+  const typeLabel = { person: "人物", tool: "工具", concept: "概念", project: "案例", lab: "實驗室" };
+
+  // 內文自動連結:把段落裡提到的 entity 名稱變成可點連結(每章只連第一次提到)
+  const linkTerms = [];
+  data.entities.forEach(e => {
+    if (e.name) linkTerms.push({ term: e.name, id: e.id });
+    if (e.nameEn && e.nameEn !== e.name) linkTerms.push({ term: e.nameEn, id: e.id });
+  });
+  linkTerms.sort((a, b) => b.term.length - a.term.length); // 長詞優先,避免被短詞先吃掉
+
+  const ASCII = /[A-Za-z0-9]/;
+  function escapeHtml(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+  function autolink(text, linkedIds) {
+    let out = "", i = 0;
+    while (i < text.length) {
+      let hit = null;
+      for (const lt of linkTerms) {
+        if (linkedIds.has(lt.id)) continue;            // 一章只連第一次
+        if (!text.startsWith(lt.term, i)) continue;
+        if (ASCII.test(lt.term[0])) {                  // ASCII 詞檢查邊界,避免 CAD 命中 AutoCAD
+          const before = i > 0 ? text[i - 1] : "";
+          const after = text[i + lt.term.length] || "";
+          if (ASCII.test(before) || ASCII.test(after)) continue;
+        }
+        hit = lt; break;
+      }
+      if (hit) {
+        out += `<span class="ch-inline" data-id="${hit.id}">${escapeHtml(hit.term)}</span>`;
+        linkedIds.add(hit.id);
+        i += hit.term.length;
+      } else {
+        out += escapeHtml(text[i]);
+        i++;
+      }
+    }
+    return out;
+  }
+  const para = (t, ids) => `<p>${autolink(t, ids)}</p>`;
+
+  // ── TOC(兩層:章 → 小節)──
+  const toc = document.getElementById("toc");
+  toc.innerHTML = data.chapters.map(c => {
+    const p = periodMap[c.periodId];
+    const subs = (c.sections && c.sections.length)
+      ? `<ul class="toc-sub">${c.sections.map(s => `<li><a href="#${s.id}" data-target="${s.id}" class="toc-sub-link">${s.heading}</a></li>`).join("")}</ul>`
+      : "";
+    return `<li>
+      <a href="#${c.id}" data-target="${c.id}">${c.title}<span class="toc-years">${p.years}</span></a>
+      ${subs}
+    </li>`;
+  }).join("");
+
+  // ── 章節主體 ──
+  const root = document.getElementById("chapters");
+  root.innerHTML = data.chapters.map((c, idx) => {
+    const p = periodMap[c.periodId];
+    const linkedIds = new Set();               // 整章共用(含 lead / intro / 各小節)
+    const intro = (c.paragraphs || []).map(t => para(t, linkedIds)).join("");
+    const sections = (c.sections || []).map(s => `
+      <section class="ch-sub" id="${s.id}">
+        <h3 class="ch-subhead">${escapeHtml(s.heading)}</h3>
+        ${s.paragraphs.map(t => para(t, linkedIds)).join("")}
+      </section>`).join("");
+
+    // 該時期的實體分類(章末「此時期相關」)
+    const ents = data.entities.filter(e => e.periodId === c.periodId);
+    const tagsByType = ["person", "tool", "concept", "project", "lab"]
+      .map(t => ents.filter(e => e.type === t).sort((a, b) => a.year - b.year))
+      .filter(arr => arr.length)
+      .map(arr => arr.map(e => `<span class="ch-tag" data-id="${e.id}" style="border-left-color: ${p.color}"><span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--text-3);">${typeLabel[e.type]}</span> ${e.name}</span>`).join(""))
+      .join("");
+
+    const sources = (c.sources && c.sources.length) ? `
+      <div class="ch-sources">
+        <h4>來源</h4>
+        <ol>${c.sources.map(s => `<li><a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.title} ↗</a></li>`).join("")}</ol>
+      </div>` : "";
+
+    return `
+      <section class="chapter" id="${c.id}" data-period="${c.periodId}">
+        <div class="ch-num">Chapter ${String(idx + 1).padStart(2, "0")} · ${p.subtitle}</div>
+        <h2>${c.title}</h2>
+        <div class="ch-years">${p.years}</div>
+        <p class="lead" style="border-left-color: ${p.color}">${autolink(c.lead, linkedIds)}</p>
+        ${intro}
+        ${sections}
+        ${sources}
+        <div class="ch-tags">
+          <h4>此時期相關</h4>
+          <div class="ch-tag-grid">${tagsByType}</div>
+        </div>
+      </section>`;
+  }).join("");
+
+  // 點 tag / 內文連結 開 modal
+  root.addEventListener("click", e => {
+    const el = e.target.closest(".ch-tag, .ch-inline");
+    if (!el) return;
+    window.__openEntity(el.dataset.id);
+  });
+
+  // TOC 平滑捲動
+  toc.querySelectorAll("a").forEach(a => {
+    a.addEventListener("click", ev => {
+      ev.preventDefault();
+      const el = document.getElementById(a.dataset.target);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
+  // ── 捲動高亮(小節優先,連帶高亮父章)──
+  const tocLinks = [...toc.querySelectorAll("a")];
+  const subToChapter = {};
+  data.chapters.forEach(c => (c.sections || []).forEach(s => subToChapter[s.id] = c.id));
+
+  const observeTargets = [];
+  data.chapters.forEach(c => {
+    if (c.sections && c.sections.length) c.sections.forEach(s => observeTargets.push(document.getElementById(s.id)));
+    else observeTargets.push(document.getElementById(c.id));
+  });
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const id = en.target.id;
+      tocLinks.forEach(a => a.classList.remove("active"));
+      const link = toc.querySelector(`a[data-target="${id}"]`);
+      if (link) link.classList.add("active");
+      const chId = subToChapter[id];
+      if (chId) { const cl = toc.querySelector(`a[data-target="${chId}"]`); if (cl) cl.classList.add("active"); }
+    });
+  }, { rootMargin: "-25% 0px -65% 0px" });
+  observeTargets.filter(Boolean).forEach(t => obs.observe(t));
+})();

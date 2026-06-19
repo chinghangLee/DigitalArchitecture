@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>章節閱讀 · 數位建築脈絡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="chapters">
+  <div id="nav"></div>
+
+  <div class="page" style="padding-bottom: 32px;">
+    <div class="page-header">
+      <div class="kicker">04 / Chapters</div>
+      <h1>章節閱讀</h1>
+      <p class="lead">七章敘事,從 1963 的 Sketchpad 一路讀到 2022 後的擴散模型。每章末尾列出該時期的人物、工具、概念、案例,點擊看細節。</p>
+    </div>
+  </div>
+
+  <div class="ch-layout">
+    <nav class="ch-toc">
+      <h4>目錄</h4>
+      <ol id="toc"></ol>
+    </nav>
+    <article class="ch-content" id="chapters"></article>
+  </div>
+
+  <div class="modal-backdrop" id="modal-backdrop">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modal-close">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    Digital Architecture Lineage · 起手骨架 v0.1
+  </footer>
+
+  <script src="data/entities.js"></script>
+  <script src="js/wiki.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/chapters.js"></script>
+  <script src="js/modal.js"></script>
+</body>
+</html>

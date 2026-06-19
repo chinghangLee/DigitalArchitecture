@@ -1,0 +1,8 @@
+# macOS
+.DS_Store
+
+# Claude Code 本機設定(預覽伺服器等)
+.claude/
+
+# Node
+node_modules/

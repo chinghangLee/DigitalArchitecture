@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>關聯網絡 · 數位建築脈絡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Noto+Serif+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="network">
+  <div id="nav"></div>
+
+  <div class="net-wrap">
+    <div class="net-canvas" id="net-canvas">
+      <svg id="net-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+
+    <aside class="net-side">
+      <input type="text" class="search-box" id="net-search" placeholder="搜尋節點…(名稱/英文)" style="width:100%; margin:0 0 20px;" />
+      <div class="net-legend">
+        <h4>類型</h4>
+        <div class="legend-item"><span class="legend-shape" style="background: var(--text-2); border-radius: 50%;"></span> 人物 Person</div>
+        <div class="legend-item"><span class="legend-shape" style="background: var(--text-2);"></span> 工具 Tool</div>
+        <div class="legend-item"><span class="legend-shape" style="background: var(--text-2); transform: rotate(45deg);"></span> 概念 Concept</div>
+        <div class="legend-item"><span class="legend-shape" style="background: var(--text-2); border-radius: 50% 50% 0 0;"></span> 案例 Project</div>
+        <div class="legend-item"><span class="legend-shape" style="background: var(--text-2); clip-path: polygon(50% 0, 100% 100%, 0 100%);"></span> 實驗室 Lab</div>
+
+        <h4 style="margin-top: 20px;">時期(顏色)</h4>
+        <div id="net-period-legend"></div>
+      </div>
+
+      <div class="net-detail" id="net-detail">
+        <p class="net-empty">點擊節點看細節,拖曳節點調整位置,滾輪縮放。</p>
+      </div>
+    </aside>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="data/entities.js"></script>
+  <script src="js/wiki.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/network.js"></script>
+</body>
+</html>

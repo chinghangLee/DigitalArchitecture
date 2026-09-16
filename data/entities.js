@@ -15,6 +15,31 @@ window.DATA = {
 
   // type: person | tool | concept | project | lab
   entities: [
+    // ─── 補充:GH 工具生態系(批次二) ───────────────────
+    { id: "cadenary", type: "tool", name: "CADenary", nameEn: "CADenary", year: 2004, periodId: "P3",
+      summary: "Axel Kilian 的數位懸鏈模型 — Gaudí 的掛繩實驗第一次搬進即時互動軟體。",
+      body: "CADenary(2004)由 Axel Kilian 開發,以粒子彈簧系統即時模擬懸掛鏈網:拖動節點,鏈網即時垂落、找到新的平衡 — Gaudí 掛滿砝碼的類比模型,第一次成為可即時互動的數位工具。Kilian 與 Ochsendorf 2005 年的粒子彈簧論文奠定了它的理論,也預示了六年後的 Kangaroo。",
+      sources: [ { title: "Kilian, A. (2004). CADenary tool v.1", url: "http://www.designexplorer.net/projectpages/cadenary.html" },
+                 { title: "Kilian, A. & Ochsendorf, J. (2005). Particle-spring systems for structural form finding. Journal of the IASS 46(2)", url: "https://www.ingentaconnect.com/content/iass/jiass" } ] },
+    { id: "karamba", type: "tool", name: "Karamba3D", nameEn: "Karamba3D", year: 2013, periodId: "P4",
+      summary: "Grasshopper 裡的即時結構分析,讓力學回饋進入生形迴圈。",
+      body: "Karamba3D 由 Clemens Preisinger 與 Bollinger + Grohmann 工程顧問合作開發,把有限元素分析搬進 Grasshopper:桿件內力、變形與挫屈,在參數模型改變的瞬間即時更新。結構工程從「事後驗算」變成「設計中的回饋」— 性能不再是形的審查者,而是形的共同作者。",
+      sources: [ { title: "Preisinger, C. (2013). Linking Structure and Parametric Geometry. Architectural Design 83(2)", url: "https://doi.org/10.1002/ad.1564" },
+                 { title: "Preisinger, C. & Heimrath, M. (2014). Karamba: A Toolkit for Parametric Structural Design. Structural Engineering International 24(2)", url: "https://doi.org/10.2749/101686614X13830790993483" } ] },
+    { id: "millipede", type: "tool", name: "Millipede", nameEn: "Millipede", year: 2014, periodId: "P4",
+      summary: "拓撲最佳化與結構分析的 Grasshopper 外掛,讓材料分佈由演算法決定。",
+      body: "由 Sawako Kaijima 與 Panagiotis Michalatos 開發,Millipede 把拓撲最佳化帶進 Grasshopper 的日常:給定荷載與邊界,它算出材料該留在哪裡,輸出如骨骼般的密度雲。「讓演算法決定材料放哪裡」從研究室的專業,變成設計者畫布上的一個元件。",
+      sources: [ { title: "Kaijima, S. & Michalatos, P. (2011). Intuitive Material Distributions. Architectural Design 81(4)", url: "https://doi.org/10.1002/ad.1272" },
+                 { title: "Millipede March 2014 release notes", url: "https://www.sawapan.eu" } ] },
+    { id: "octopus", type: "tool", name: "Octopus", nameEn: "Octopus", year: 2013, periodId: "P4",
+      summary: "多目標演化優選外掛 — 在互相衝突的目標之間展開解的光譜。",
+      body: "Robert Vierlinger 開發的 Octopus,把多目標演化演算法帶進 Grasshopper:與單目標的 Galapagos 不同,它不找「唯一最佳解」,而是展開 Pareto 前緣 — 結構效率、採光、造價互相拉鋸下的整片解光譜。「取捨」本身,變成可視化、可挑選的設計素材。",
+      sources: [ { title: "Vierlinger, R. (2013). A Framework for Flexible Search and Optimization in Parametric Design. TU Wien", url: "https://www.bollinger-grohmann.com" },
+                 { title: "Vierlinger, R. & Hofmann, A. (2013). Multi Objective Design Interface. TU Wien", url: "https://www.bollinger-grohmann.com" } ] },
+    { id: "rhinovault", type: "tool", name: "RhinoVAULT", nameEn: "RhinoVAULT", year: 2012, periodId: "P5",
+      summary: "BRG 的推力網絡找形工具,讓純受壓拱殼設計成為互動操作。",
+      body: "RhinoVAULT 由 ETH Block Research Group 開發,把推力網絡分析(TNA)包成 Rhino 裡的互動工具:設計者拖動力圖,形圖即時跟著改變 — Maxwell 的形力對偶、Gaudí 的懸鏈直覺,變成滑鼠下的即時操作。Armadillo Vault 等無筋石殼的設計,正是以它為起點。",
+      sources: [ { title: "Block, P., Lachauer, L. & Rippmann, M. (2014). Thrust Network Analysis: Design of a cut-stone masonry vault. In Shell Structures for Architecture. Routledge", url: "https://block.arch.ethz.ch/brg/tools/rhinovault" } ] },
     // ─── P4 補充:生成演算法概念群 ──────────────────────
     { id: "cellularautomaton", type: "concept", name: "細胞自動機", nameEn: "Cellular automaton", year: 1970, periodId: "P4",
       summary: "格子上的簡單規則,疊代出複雜的全域形態 — 由下而上生形的原型。",
@@ -1132,6 +1157,17 @@ window.DATA = {
   // 關聯 — from / to 都是 entity id
   // label: 創造 / 啟發 / 推動 / 使用 / 主持 / 學於 / 任教於 / 影響 / 演化自
   relations: [
+    // GH 工具生態系(批次二)
+    { from: "karamba",    to: "grasshopper",         label: "外掛" },
+    { from: "millipede",  to: "grasshopper",         label: "外掛" },
+    { from: "millipede",  to: "topologyoptimization", label: "實作" },
+    { from: "octopus",    to: "grasshopper",         label: "外掛" },
+    { from: "octopus",    to: "genetic",             label: "實作" },
+    { from: "brg",        to: "rhinovault",          label: "開發" },
+    { from: "rhinovault", to: "thrustnetwork",       label: "實作" },
+    { from: "rhinovault", to: "armadillo",           label: "找形" },
+    { from: "cadenary",   to: "formfinding",         label: "實作" },
+    { from: "cadenary",   to: "kangaroo",            label: "先聲" },
     // 生成演算法概念群
     { from: "frazer",             to: "cellularautomaton",   label: "運用" },
     { from: "morphogenesis",      to: "cellularautomaton",   label: "啟發" },

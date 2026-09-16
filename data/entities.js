@@ -15,6 +15,40 @@ window.DATA = {
 
   // type: person | tool | concept | project | lab
   entities: [
+    // ─── P4 補充:生成演算法概念群 ──────────────────────
+    { id: "cellularautomaton", type: "concept", name: "細胞自動機", nameEn: "Cellular automaton", year: 1970, periodId: "P4",
+      summary: "格子上的簡單規則,疊代出複雜的全域形態 — 由下而上生形的原型。",
+      body: [ "細胞自動機(cellular automaton)把空間切成格子,每一格只依鄰居的狀態決定自己的下一步。von Neumann 在 1940 年代提出自我複製自動機;1970 年 Conway 的「生命遊戲」讓它家喻戶曉;2002 年 Wolfram 在《A New Kind of Science》主張簡單規則足以產生極端的複雜 — 沒有總圖、沒有指揮,複雜形態由下而上湧現。",
+              "在建築裡,它是離散化生形的原型:Frazer 的演化建築實驗以它演化構造單元,數位設計用它生成孔隙、聚集與立面模式。與反應擴散、擴散限制聚集(DLA)、差分生長同屬「疊代找形」一族 — 形不是被畫出來,而是被跑出來的。",
+              "(年份標 1970 為生命遊戲發表年;細胞自動機的數學起源更早。)" ],
+      sources: [ { title: "Gardner, M. (1970). The fantastic combinations of John Conway's new solitaire game 'life'. Scientific American 223(4)", url: "https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" },
+                 { title: "Wolfram, S. (2002). A New Kind of Science. Wolfram Media", url: "https://www.wolframscience.com" },
+                 { title: "Batty, M. (2007). Cities and Complexity. MIT Press", url: "https://mitpress.mit.edu/books/cities-and-complexity" } ] },
+    { id: "fractal", type: "concept", name: "碎形", nameEn: "Fractal", year: 1982, periodId: "P4",
+      summary: "自相似的遞歸幾何 — 部分與整體共享同一條生成規則。",
+      body: [ "Mandelbrot 在 1967 年問:「英國的海岸線有多長?」答案取決於量尺的長度;1982 年的《大自然的碎形幾何》則給了這族幾何一個名字:碎形(fractal)— 以遞歸規則生成、在任何尺度都自相似。山稜、樹枝、血管:自然的複雜,多半是簡單規則的深度疊代。",
+              "在設計運算裡,碎形是「遞歸找形」的代表:L-system 的分枝、遞歸細分的表面、多尺度的立面秩序,都是它的族裔。它提醒設計者:豐富不必來自任意,可以來自規則。" ],
+      sources: [ { title: "Mandelbrot, B. (1967). How long is the coast of Britain? Science 156", url: "https://doi.org/10.1126/science.156.3775.636" },
+                 { title: "Mandelbrot, B. (1982). The Fractal Geometry of Nature. W. H. Freeman", url: "https://en.wikipedia.org/wiki/The_Fractal_Geometry_of_Nature" } ] },
+    { id: "subdivision", type: "concept", name: "細分曲面", nameEn: "Subdivision surface", year: 1978, periodId: "P4",
+      summary: "粗網格經遞歸細分收斂為光滑曲面 — 從動畫工業到數位建築的自由形答案。",
+      body: [ "1978 年,Catmull-Clark 與 Doo-Sabin 兩組方案同年發表:把粗糙的控制網格反覆切細、平均,收斂成光滑曲面。與 NURBS 的數學精確不同,細分曲面擁抱任意拓撲 — 有洞、有分岔的形一樣能光滑。1998 年皮克斯將它帶進短片《Geri's Game》,從此成為動畫工業的標準。",
+              "在建築端,它是網格思維的入口:從多邊形建模的直覺,到 Hansmeyer 以數百萬次遞歸細分生成的哥德式柱,細分曲面證明了一件事 — 形的複雜度,可以是演算深度的函數。" ],
+      sources: [ { title: "Catmull, E. & Clark, J. (1978). Recursively generated B-spline surfaces on arbitrary topological meshes. Computer-Aided Design 10(6)", url: "https://doi.org/10.1016/0010-4485(78)90110-0" },
+                 { title: "Doo, D. & Sabin, M. (1978). Behaviour of recursive division surfaces near extraordinary points. Computer-Aided Design 10(6)", url: "https://doi.org/10.1016/0010-4485(78)90111-2" },
+                 { title: "DeRose, T., Kass, M. & Truong, T. (1998). Subdivision surfaces in character animation. SIGGRAPH '98", url: "https://doi.org/10.1145/280814.280826" } ] },
+    { id: "tessellation", type: "concept", name: "鑲嵌", nameEn: "Tessellation", year: 1960, periodId: "P4",
+      summary: "以單元無縫鋪滿平面或空間 — 從週期秩序到非週期變化的表皮邏輯。",
+      body: [ "鑲嵌(tessellation)是把單元無縫鋪滿面或空間的幾何學:正規與半正規鑲嵌給出週期的秩序;1960 年代初 Wang 提出的 Wang tiles 與 1974 年的 Penrose 鋪磚則證明,存在永不重複的非週期鑲嵌 — 秩序與變化可以共存。",
+              "這正是參數化表皮的核心課題:Voronoi 是由點生成的鑲嵌、水立方的泡沫幾何是三維鑲嵌的名作、伊斯蘭圖樣是它的古典高峰。當每個單元都能被獨立微調,鑲嵌就從重複的經濟學,變成漸變的形態學。" ],
+      sources: [ { title: "Wang, H. (1960). Proving theorems by pattern recognition I. Communications of the ACM 3(4)", url: "https://doi.org/10.1145/367177.367224" },
+                 { title: "Culik, K. (1996). An aperiodic set of 13 Wang tiles. Discrete Mathematics 160", url: "https://doi.org/10.1016/S0012-365X(96)00118-5" },
+                 { title: "Smith, C. S. & Boucher, P. (1987). The tiling patterns of Sebastien Truchet. Leonardo 20(4)", url: "https://doi.org/10.2307/1578535" } ] },
+    { id: "topologyoptimization", type: "concept", name: "拓撲最佳化", nameEn: "Topology optimization", year: 2003, periodId: "P4",
+      summary: "給定荷載與邊界,讓演算法決定材料放哪裡 — 把「形」當作最佳化的未知數。",
+      body: [ "拓撲最佳化(topology optimization)問的是:在給定荷載、邊界與材料量之下,材料應該放在哪裡?演算法從一塊填滿材料的設計域出發,反覆削去低效的部分 — 留下的形往往像骨骼,因為骨骼正是自然的拓撲最佳化。Bendsøe 與 Sigmund 2003 年的專著奠定了方法學。",
+              "它是找形的數位極端:Otto 讓物理決定形,拓撲最佳化讓目標函數決定形 — Musmeci「把形當作未知數」的提問,在此得到工程化的答案。從航太零件到 3D 列印的結構節點,它把「輕」變成一種可計算的美學。" ],
+      sources: [ { title: "Bendsøe, M. P. & Sigmund, O. (2003). Topology Optimization: Theory, Methods, and Applications. Springer", url: "https://doi.org/10.1007/978-3-662-05086-6" } ] },
     // ─── P4 補充:衍生圖解 ──────────────────────────────
     { id: "generativediagram", type: "concept", name: "衍生圖解", nameEn: "Generative Diagram", year: 2019, periodId: "P4",
       summary: "數位製造時代的圖解:不只生成形,更貫穿模擬、分析到建造的資訊機器。",
@@ -1098,6 +1132,17 @@ window.DATA = {
   // 關聯 — from / to 都是 entity id
   // label: 創造 / 啟發 / 推動 / 使用 / 主持 / 學於 / 任教於 / 影響 / 演化自
   relations: [
+    // 生成演算法概念群
+    { from: "frazer",             to: "cellularautomaton",   label: "運用" },
+    { from: "morphogenesis",      to: "cellularautomaton",   label: "啟發" },
+    { from: "cellularautomaton",  to: "reactiondiffusion",   label: "呼應" },
+    { from: "lsystems",           to: "fractal",             label: "生成" },
+    { from: "hansmeyer",          to: "subdivision",         label: "深掘" },
+    { from: "subdivision",        to: "digitalgrotesque",    label: "生成" },
+    { from: "tessellation",       to: "voronoi",             label: "涵蓋" },
+    { from: "tessellation",       to: "watercube",           label: "應用" },
+    { from: "formfinding",        to: "topologyoptimization", label: "演化為" },
+    { from: "topologyoptimization", to: "generative",        label: "奠基" },
     // 圖解理論線
     { from: "stanallen",       to: "diagram",           label: "發展" },
     { from: "mvrdv",           to: "diagram",           label: "發展" },

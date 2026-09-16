@@ -15,6 +15,13 @@ window.DATA = {
 
   // type: person | tool | concept | project | lab
   entities: [
+    // ─── P4 補充:衍生圖解 ──────────────────────────────
+    { id: "generativediagram", type: "concept", name: "衍生圖解", nameEn: "Generative Diagram", year: 2019, periodId: "P4",
+      summary: "數位製造時代的圖解:不只生成形,更貫穿模擬、分析到建造的資訊機器。",
+      body: [ "當圖解遇上演算法與數位製造,角色再次改變:不再只是分析與再現的工具(類推圖解的概念、結構、數據、組織、生成五類),而成為貫穿「生成 → 模擬 → 分析 → 建造」整條流程的資訊機器 — 衍生圖解(generative diagram)。它有五種特性:演算圖解編碼生形規則、行為圖解捕捉群集與動態、性能圖解回饋結構與環境模擬、建造圖解銜接製造限制、進化圖解驅動疊代優選。",
+              "這個觀點與袁烽《從圖解思維到數字建造》(2016)的論旨相互呼應:圖解思維是數位建造的上游 — 從 Eisenman 的程序圖解到今日的機器人建造,圖解是把設計意圖翻譯成可執行資訊的關鍵中介。" ],
+      sources: [ { title: "袁烽(2016)。從圖解思維到數字建造。同濟大學出版社", url: "https://book.douban.com/subject/26892205/" },
+                 { title: "李京翰(2019)。拓撲運算與製造:圖解導向之形態發生學(博士論文,淡江大學)第三章", url: "https://etds.lib.tku.edu.tw" } ] },
     // ─── P1 補充:找形與形態發生(方案 B 深詞條) ──────────
     { id: "turing", type: "person", name: "Alan Turing", nameEn: "Alan Turing", year: 1952, periodId: "P1",
       summary: "計算機科學之父;〈形態發生的化學基礎〉首度以數位模擬解釋生物之形如何自己長出來。",
@@ -32,16 +39,14 @@ window.DATA = {
       body: [ "找形(form-finding)是把設計權讓渡給物理的動作:設計者決定材料、邊界與荷載,形態由平衡狀態自己「浮現」。這條脈絡由類比模型串起:1675 年 Hooke 以字謎道出「懸鏈柔軟地下垂,倒轉即是直立的剛性拱」;1748 年 Poleni 在剖面圖上倒吊掛砝碼的鏈,驗證聖彼得大教堂圓頂的安全;Gaudí 將它擴展成三維的懸吊模型;Frei Otto 再以皂膜、懸鏈網與充氣膜,把找形系統化為可傳授的實驗方法。",
               "二戰前後的工程實踐接續了這條線:Nervi 讓等應力線直接成為肋樑紋理、Dieste 以直紋曲面讓一磚厚的殼跨越數十公尺、Isler 翻轉懸掛布膜建出上千座薄殼 — 找形從實驗室走進量產的建造。數位時代,力密度法、動力鬆弛與粒子彈簧接手了實體模型的工作:Kangaroo 與推力網絡分析,是同一個提問 —「形應該從哪裡來」— 的當代答案。" ],
       sources: [ { title: "Adriaenssens, S., Block, P. et al. (Eds.) (2014). Shell Structures for Architecture: Form Finding and Optimization. Routledge", url: "https://doi.org/10.4324/9781315849270" },
-                 { title: "Kilian, A. & Ochsendorf, J. (2005). Particle-spring systems for structural form finding. Journal of the IASS 46(2)", url: "https://www.ingentaconnect.com/content/iass/jiass" },
-                 { title: "李京翰(2019)。拓撲運算與製造:圖解導向之形態發生學(博士論文,淡江大學)第 2.3 節", url: "https://etds.lib.tku.edu.tw" } ] },
+                 { title: "Kilian, A. & Ochsendorf, J. (2005). Particle-spring systems for structural form finding. Journal of the IASS 46(2)", url: "https://www.ingentaconnect.com/content/iass/jiass" } ] },
     { id: "morphogenesis", type: "concept", name: "形態發生學", nameEn: "Morphogenesis", year: 1917, periodId: "P1",
       summary: "研究「形如何被生成」的科學 — Thompson 以類比分析、Turing 以數位模擬,分頭解開生物形態的成因。",
       body: [ "形態發生學(morphogenesis)原是生物學的問題:一顆均勻的受精卵,如何長出有結構的形?二十世紀出現了兩條平行的解法。D'Arcy Thompson 的《論生長與形態》(1917)走類比之路:以幾何與力學直接分析 — 貝殼是對數螺線、骨小樑沿應力方向排列、相近物種之形可用座標網格的變形互相映射。Alan Turing(1952)則走模擬之路:以反應擴散方程讓斑紋在計算中自己長出來 — 形不必被指定,可以被過程生成。",
               "2000 年前後,Kolarevic、Leach 等理論家把 digital morphogenesis 引入建築論述:設計者不再直接畫形,而是設計「生成形的過程」。本站演算法生成時期的工具與案例 — 從 L-system、Voronoi 到反應擴散 — 都可視為這個觀念的實作。(年份標 1917 為《論生長與形態》出版年。)" ],
       sources: [ { title: "Thompson, D. W. (1942). On Growth and Form. Macmillan", url: "https://en.wikipedia.org/wiki/On_Growth_and_Form" },
                  { title: "Kolarevic, B. (2000). Digital morphogenesis and computational architecture. SIGraDi Proceedings", url: "https://papers.cumincad.org" },
-                 { title: "Leach, N. (2009). Digital morphogenesis. Architectural Design 79(1)", url: "https://doi.org/10.1002/ad.806" },
-                 { title: "李京翰(2019)。拓撲運算與製造:圖解導向之形態發生學(博士論文,淡江大學)第 2.2 節", url: "https://etds.lib.tku.edu.tw" } ] },
+                 { title: "Leach, N. (2009). Digital morphogenesis. Architectural Design 79(1)", url: "https://doi.org/10.1002/ad.806" } ] },
     // ─── P1 萌芽期 ─────────────────────────────────────────
     { id: "sutherland", type: "person", name: "Ivan Sutherland", nameEn: "Ivan Sutherland", year: 1963, periodId: "P1",
       summary: "1963 年發表 Sketchpad,首套互動式圖形系統,被視為 CAD、電腦圖學與圖形介面的共同起點。",
@@ -613,7 +618,9 @@ window.DATA = {
     // ─── P2 形式探索 補充 ─────────────────────────────────
     { id: "eisenman", type: "person", name: "Peter Eisenman", nameEn: "Peter Eisenman", year: 1992, periodId: "P2",
       summary: "以圖解與摺疊探索數位形態的理論型建築師。",
-      body: "從卡板屋系列到 Rebstockpark、辛辛那提 Aronoff 中心,將德希達、德勒茲思想與電腦圖解結合,是 folding 論述的關鍵人物。" },
+      body: [ "從卡板屋系列到 Rebstockpark、辛辛那提 Aronoff 中心,將德希達、德勒茲思想與電腦圖解結合,是 folding 論述的關鍵人物。",
+              "《Diagram Diaries》(1999)整理了他四十年的圖解實踐:圖解不是再現設計的手段,而是生成設計的程序 — 卡板屋的每一步旋轉與疊印,都是圖解操作的紀錄。這使他成為圖解從分析轉向生成的樞紐。" ],
+      sources: [ { title: "Eisenman, P. (1999). Diagram Diaries. Thames & Hudson", url: "https://en.wikipedia.org/wiki/Peter_Eisenman" } ] },
     { id: "vanBerkel", type: "person", name: "Ben van Berkel", nameEn: "Ben van Berkel", year: 1996, periodId: "P2",
       summary: "UNStudio 共同創辦人,以 Möbius House 探索連續形體。",
       body: "與 Caroline Bos 創立 UNStudio,1998 Möbius House 把拓樸概念實體化,後以參數化與資訊圖解延續到大尺度作品。" },
@@ -640,7 +647,13 @@ window.DATA = {
       body: "經 Stephen Perrella 等人提出,主張建築表面同時承載影像、資訊與結構,呼應數位時代的虛實交融。" },
     { id: "diagram", type: "concept", name: "圖解", nameEn: "Diagram (architecture)", year: 1998, periodId: "P2",
       summary: "以抽象圖解作為設計生成引擎而非再現工具。",
-      body: "經 Eisenman、UNStudio、MVRDV 等發展,圖解從說明工具轉為組織關係、驅動形式的生成裝置。" },
+      body: [ "圖解在建築中最早是分析的工具:1949 年 Wittkower 用九宮格圖解分析 Palladio 的十一種別墅平面;Rowe 進一步比較 Villa Stein 與 Villa Malcontenta,證明古典與現代共享同一套深層幾何;Hejduk 在德州大學把這套形式分析變成教學法(Texas Houses)。這條「分析圖解」的線,讓圖解成為看穿形式深層結構的透鏡。",
+              "1980 年代之後,圖解轉向:Tschumi 與 Koolhaas 在拉維列特公園競圖中,以點線面疊層與條紋圖解承載事件與程式,而非構圖;Eisenman 在《Diagram Diaries》(1999)把圖解變成生成程序 — 形式是圖解操作(旋轉、疊印、縮放)的產物;其哲學底層是 Deleuze 的「抽象機器」:圖解不再現既有之物,而是生產尚未存在之物。Allen 的場域條件把注意力從物件移到組織關係,MVRDV 的 datascape 則讓數據直接擠壓出形體。",
+              "進入數位時代,圖解與參數模型、演算法合流 — 經 Eisenman、UNStudio、MVRDV 等發展,從說明工具徹底轉為組織關係、驅動形式的生成裝置,並在數位製造時代演化為貫穿設計到建造的衍生圖解。" ],
+      sources: [ { title: "Garcia, M. (Ed.) (2010). The Diagrams of Architecture. Wiley", url: "https://www.wiley.com/en-us/The+Diagrams+of+Architecture-p-9780470519455" },
+                 { title: "Eisenman, P. (1999). Diagram Diaries. Thames & Hudson", url: "https://en.wikipedia.org/wiki/Peter_Eisenman" },
+                 { title: "Somol, R. E. (2010). Dummy Text, or The Diagrammatic Basis of Contemporary Architecture. In The Diagrams of Architecture", url: "https://www.wiley.com/en-us/The+Diagrams+of+Architecture-p-9780470519455" },
+                 { title: "袁烽(2016)。從圖解思維到數字建造。同濟大學出版社", url: "https://book.douban.com/subject/26892205/" } ] },
     { id: "mobiusHouse", type: "project", name: "莫比烏斯住宅", nameEn: "Möbius House", year: 1998, periodId: "P2",
       summary: "UNStudio 將拓樸的莫比烏斯帶轉化為居住流線。",
       body: "以一條連續迴圈組織兩人一日的生活與工作動線,材料(混凝土與玻璃)沿迴圈互換,是拓樸建築的代表作。" },
@@ -673,8 +686,10 @@ window.DATA = {
       sources: [ { title: "Frank Gehry — Wikipedia", url: "https://en.wikipedia.org/wiki/Frank_Gehry" } ] },
     { id: "tschumi", type: "person", name: "Bernard Tschumi", nameEn: "Bernard Tschumi", year: 1994, periodId: "P2",
       summary: "建築師與哥大 GSAPP 院長,1990 年代推動「無紙工作室」,把電腦設計帶進建築教育。",
-      body: "Bernard Tschumi(1944–)是瑞士裔建築師,以巴黎拉維列特公園(Parc de la Villette)聞名,也是 1988 年 MoMA 解構主義展的一員。任哥倫比亞大學 GSAPP 院長期間(1988–2003),他在 1994 年前後推動「無紙工作室」(Paperless Studio),要求學生全面以電腦設計,直接催生了 Greg Lynn、Hani Rashid 等數位世代。",
-      sources: [ { title: "Bernard Tschumi — Wikipedia", url: "https://en.wikipedia.org/wiki/Bernard_Tschumi" } ] },
+      body: [ "Bernard Tschumi(1944–)是瑞士裔建築師,以巴黎拉維列特公園(Parc de la Villette)聞名,也是 1988 年 MoMA 解構主義展的一員。任哥倫比亞大學 GSAPP 院長期間(1988–2003),他在 1994 年前後推動「無紙工作室」(Paperless Studio),要求學生全面以電腦設計,直接催生了 Greg Lynn、Hani Rashid 等數位世代。",
+              "他的圖解實踐同樣關鍵:《Manhattan Transcripts》(1981)以事件、運動、空間的三層記譜,把敘事帶進建築圖解;拉維列特公園的點、線、面疊層,則讓圖解直接成為配置的邏輯。" ],
+      sources: [ { title: "Bernard Tschumi — Wikipedia", url: "https://en.wikipedia.org/wiki/Bernard_Tschumi" },
+                 { title: "Tschumi, B. (1981). The Manhattan Transcripts. Academy Editions", url: "https://www.moma.org/collection/works/120933" } ] },
     { id: "hanirashid", type: "person", name: "Hani Rashid", nameEn: "Hani Rashid", year: 1989, periodId: "P2",
       summary: "Asymptote 共同創辦人,哥大無紙工作室出身的數位/虛擬建築先行者。",
       body: "Hani Rashid 與 Lise Anne Couture 在 1989 年共同創立 Asymptote Architecture,是最早把數位與虛擬空間當成正式設計領域的事務所之一(例如紐約證交所的 3D 虛擬交易廳)。他長期在哥倫比亞無紙工作室任教,是 1990 年代「電腦即設計媒介」這個信念的重要傳播者。",
@@ -769,6 +784,16 @@ window.DATA = {
       sources: [ { title: "Antoni Gaudí — Wikipedia", url: "https://en.wikipedia.org/wiki/Antoni_Gaud%C3%AD" },
                  { title: "Tomlow, J. (2011). Gaudí's reluctant attitude towards the inverted catenary. ICE Engineering History and Heritage 164(4)", url: "https://doi.org/10.1680/ehah.2011.164.4.219" } ] },
 
+    // ─── P2 補充:圖解理論線 ─────────────────────────────
+    { id: "stanallen", type: "person", name: "Stan Allen", nameEn: "Stan Allen", year: 1997, periodId: "P2",
+      summary: "〈從物件到場域〉提出場域條件,把圖解從形式構圖轉向組織關係。",
+      body: "Stan Allen 在 1997 年的〈From Object to Field〉提出「場域條件」(field conditions):當設計對象從單一物件變成大量元素的聚集,重要的不再是輪廓與構圖,而是元素之間的間距、密度與生長規則 — 他以蒙德里安的畫作與電荷場圖說明這種思維轉變。場域是一種組織性的圖解:它不描繪最終的形,而是規定形如何聚集。這個觀念成為往後群集智能、參數化都市與演算法聚集的理論先聲。",
+      sources: [ { title: "Allen, S. (1997). From Object to Field. Architectural Design 67 (AD Profile 127)", url: "https://en.wikipedia.org/wiki/Stan_Allen" },
+                 { title: "Allen, S. (1999). Points + Lines: Diagrams and Projects for the City. Princeton Architectural Press", url: "https://en.wikipedia.org/wiki/Stan_Allen" } ] },
+    { id: "mvrdv", type: "lab", name: "MVRDV", nameEn: "MVRDV", year: 1999, periodId: "P2",
+      summary: "以 Datascape 讓法規、日照與數據直接擠壓出形體,數據形式圖解的代表。",
+      body: "荷蘭事務所 MVRDV(Winy Maas、Jacob van Rijs、Nathalie de Vries,1993 年成立)把圖解推向極端的字面化:《Metacity/Datatown》(1999)用純數據構築一座假想城市;「datascape」讓容積率、日照權、法規邊界這些看不見的力量,直接擠壓出建築的形體 — 數據不再是設計的參考,而是設計的作者。這種「讓數據成形」的態度,是後來參數化與性能導向設計的先聲。",
+      sources: [ { title: "Maas, W. / MVRDV (1999). Metacity/Datatown. 010 Publishers", url: "https://www.mvrdv.nl/projects/147/metacity--datatown-" } ] },
     // ─── P4 演算法生成 補充 ───────────────────────────────
     { id: "terzidis", type: "person", name: "Kostas Terzidis", nameEn: "Kostas Terzidis", year: 2006, periodId: "P4",
       summary: "《Algorithmic Architecture》作者,演算法設計的理論奠基者。",
@@ -1076,6 +1101,13 @@ window.DATA = {
   // 關聯 — from / to 都是 entity id
   // label: 創造 / 啟發 / 推動 / 使用 / 主持 / 學於 / 任教於 / 影響 / 演化自
   relations: [
+    // 圖解理論線
+    { from: "stanallen",       to: "diagram",           label: "發展" },
+    { from: "mvrdv",           to: "diagram",           label: "發展" },
+    { from: "gillesdeleuze",   to: "diagram",           label: "理論根源" },
+    { from: "diagram",         to: "generativediagram", label: "演化為" },
+    { from: "generativediagram", to: "fabrication",     label: "貫穿" },
+    { from: "yuan",            to: "generativediagram", label: "呼應" },
     // 找形與形態發生(方案 B)
     { from: "gaudi",       to: "freiotto",          label: "啟發" },
     { from: "freiotto",    to: "formfinding",       label: "系統化" },

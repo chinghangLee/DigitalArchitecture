@@ -73,7 +73,7 @@
       ${treeHtml}
     </div>
     <div class="side-foot">
-      <div class="side-stats">${DATA.entities.length} 詞條 · ${DATA.relations.length} 關聯<br>${DATA.periods.length} 時期 · 1963–2026</div>
+      <div class="side-stats">${DATA.entities.length} 詞條 · ${DATA.relations.length} 關聯<br>${DATA.periods.length} 時期 · 1675–2026</div>
       <button class="theme-toggle" id="theme-toggle"></button>
     </div>`;
 

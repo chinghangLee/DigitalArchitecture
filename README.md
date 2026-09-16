@@ -32,4 +32,6 @@
 
 ---
 
-Fork 自 [visionbase-usc/DigitalArchitecture](https://github.com/visionbase-usc/DigitalArchitecture),補入結構找形、形態發生學與圖解理論脈絡;詞條內容仍在依建築專業逐條複核中。
+整理與擴充:**李京翰**(國立雲林科技大學建築與室內設計系 助理教授)— 補入結構找形、形態發生學與圖解理論脈絡。
+
+Fork 自實踐大學建築系 VisionBase 的 [visionbase-usc/DigitalArchitecture](https://github.com/visionbase-usc/DigitalArchitecture);詞條內容仍在依建築專業逐條複核中。

@@ -15,6 +15,27 @@ window.DATA = {
 
   // type: person | tool | concept | project | lab
   entities: [
+    // ─── 補充:數位形態理論家(批次三) ─────────────────
+    { id: "koolhaas", type: "person", name: "Rem Koolhaas", nameEn: "Rem Koolhaas", year: 1982, periodId: "P2",
+      summary: "以程式與數據思考建築的旗手 — 從《狂譫紐約》到西雅圖圖書館的圖解方法。",
+      body: [ "Rem Koolhaas 不寫演算法,卻是數據與程式思維的建築旗手:《狂譫紐約》(1978)把曼哈頓讀成密度與擁擠文化的產物;1982 年拉維列特公園競圖,以水平條紋圖解分配不確定的活動;《S,M,L,XL》(1995)用統計與尺度重組建築知識。形式不是構圖的結果,而是程式、數據與都市力量的輸出 — 這個立場,是後來 datascape 與參數化都市論述的土壤。",
+              "2004 年的西雅圖中央圖書館把方法建成了:機能被重組為五個穩定平台,由數據決定各自的大小與堆疊 — 一座由圖解直接立體化的建築。OMA/AMO 的研究文化,也孕育了 MVRDV 等下一代事務所。" ],
+      sources: [ { title: "Koolhaas, R. (1978). Delirious New York. Oxford University Press", url: "https://en.wikipedia.org/wiki/Delirious_New_York" },
+                 { title: "OMA — Seattle Central Library", url: "https://oma.eu/projects/seattle-central-library" } ] },
+    { id: "kolarevic", type: "person", name: "Branko Kolarevic", nameEn: "Branko Kolarevic", year: 2003, periodId: "P3",
+      summary: "《數位時代的建築》編著者,把數位形態發生與數位製造整編成系統論述。",
+      body: "Branko Kolarevic 在 2000 年把「數位形態發生」(digital morphogenesis)一詞帶進建築討論;2003 年編著的《Architecture in the Digital Age: Design and Manufacturing》,更把從生形、性能到製造的整條數位流程整編成系統性論述 — 可建造性成為設計的內在條件,而非事後的翻譯。「從檔案到工廠」「性能導向設計」這些如今的常識,很大程度是經由他的整理而成為建築界的共同語言。",
+      sources: [ { title: "Kolarevic, B. (2000). Digital morphogenesis and computational architecture. SIGraDi Proceedings", url: "https://papers.cumincad.org" },
+                 { title: "Kolarevic, B. (Ed.) (2003). Architecture in the Digital Age: Design and Manufacturing. Spon Press", url: "https://doi.org/10.4324/9780203634561" } ] },
+    { id: "leach", type: "person", name: "Neil Leach", nameEn: "Neil Leach", year: 2009, periodId: "P4",
+      summary: "數位建築論述的長期策展人 — 從數位形態發生一路鋪到 AI 與建築。",
+      body: "Neil Leach 的角色是翻譯者,在前沿技術與建築理論之間往返:2009 年在 AD 撰〈Digital Morphogenesis〉,主張形態生成已從自然的隱喻變成可操作的設計方法;其後長期與同濟大學合作推動 DigitalFUTURES,把數位設計論述帶向全球;晚近則轉向人工智慧與建築的批判性研究。每當新技術出現,他總在第一時間為它鋪設理論的地基。",
+      sources: [ { title: "Leach, N. (2009). Digital morphogenesis. Architectural Design 79(1)", url: "https://doi.org/10.1002/ad.806" } ] },
+    { id: "weinstock", type: "person", name: "Michael Weinstock", nameEn: "Michael Weinstock", year: 2010, periodId: "P4",
+      summary: "《湧現的建築》作者、AA EmTech 共同創辦人 — 把自然系統的生成邏輯帶進建築教育。",
+      body: "Michael Weinstock 與 Michael Hensel、Achim Menges 在 AA 共同創立 Emergent Technologies and Design(EmTech),2004 年合編 AD《Emergence》專輯,把湧現、自組織與材料計算正式接進建築;2010 年的《The Architecture of Emergence》更把建築史重讀為能量與物質流動的演化史 — 自然的形態發生與文明的形態發生,是同一門科學。",
+      sources: [ { title: "Weinstock, M. (2010). The Architecture of Emergence: The Evolution of Form in Nature and Civilisation. Wiley", url: "https://www.wiley.com/en-us/The+Architecture+of+Emergence-p-9780470066331" },
+                 { title: "Hensel, M., Menges, A. & Weinstock, M. (2013). Emergent Technologies and Design. Routledge", url: "https://doi.org/10.4324/9780203597736" } ] },
     // ─── 補充:GH 工具生態系(批次二) ───────────────────
     { id: "cadenary", type: "tool", name: "CADenary", nameEn: "CADenary", year: 2004, periodId: "P3",
       summary: "Axel Kilian 的數位懸鏈模型 — Gaudí 的掛繩實驗第一次搬進即時互動軟體。",
@@ -1157,6 +1178,15 @@ window.DATA = {
   // 關聯 — from / to 都是 entity id
   // label: 創造 / 啟發 / 推動 / 使用 / 主持 / 學於 / 任教於 / 影響 / 演化自
   relations: [
+    // 數位形態理論家(批次三)
+    { from: "koolhaas",  to: "diagram",          label: "發展" },
+    { from: "koolhaas",  to: "deconstructivism", label: "參與" },
+    { from: "koolhaas",  to: "mvrdv",            label: "孕育" },
+    { from: "kolarevic", to: "morphogenesis",    label: "引介" },
+    { from: "kolarevic", to: "fabrication",      label: "論述" },
+    { from: "leach",     to: "morphogenesis",    label: "推廣" },
+    { from: "weinstock", to: "emtech",           label: "共同創立" },
+    { from: "weinstock", to: "emergence",        label: "論述" },
     // GH 工具生態系(批次二)
     { from: "karamba",    to: "grasshopper",         label: "外掛" },
     { from: "millipede",  to: "grasshopper",         label: "外掛" },

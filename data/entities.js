@@ -15,6 +15,17 @@ window.DATA = {
 
   // type: person | tool | concept | project | lab
   entities: [
+    // ─── 補充:新物質主義與曼海姆(批次四) ─────────────
+    { id: "newmaterialism", type: "concept", name: "新物質主義", nameEn: "New materialism", year: 2014, periodId: "P5",
+      summary: "物質不是被形式塑造的被動材料,而是有自身行為與能動性的設計參與者。",
+      body: [ "新物質主義(new materialism)源自 1990 年代 DeLanda 等人的哲學:物質不是等待形式的惰性質料,而是有自身歷史、行為與能動性的參與者 — 形,是物質過程的產物。這個立場進入建築,便翻轉了「先畫形、再選材」的順序:木材的纖維方向、混凝土的流動、磚的堆疊邏輯,都成為生形的起點。",
+              "數位製造讓這個哲學變得可操作:當設計資訊能無縫流動到機器與材料,材料行為就能被即時模擬、回饋、寫進形態 — 材料計算與數位物質性,是它在數位建築中的兩個具體面孔。" ],
+      sources: [ { title: "Gramazio, F., Kohler, M. & Willmann, J. (2014). The Robotic Touch / Digital Materiality in Architecture. Park Books", url: "https://gramaziokohler.arch.ethz.ch" },
+                 { title: "Picon, A. (2010). Digital Culture in Architecture. Birkhäuser", url: "https://www.degruyter.com/document/doi/10.1515/9783034609258/html" } ] },
+    { id: "multihalle", type: "project", name: "曼海姆多功能廳", nameEn: "Multihalle", year: 1975, periodId: "P1",
+      summary: "倒吊網模型找形的木構網殼,類比找形時代的建成巔峰。",
+      body: "曼海姆聯邦園藝博覽會的多功能廳,跨距約 60 公尺,用的卻只是 5 公分見方的木格條。Frei Otto 團隊以倒吊鏈網找形,Arup 的 Happold 團隊再以當時罕見的電腦分析驗證 — 類比找形與數位計算,在這座建築上第一次正式握手。它至今仍是世界最大的木構網殼之一,也是斯圖加特找形傳統最重要的建成證言。",
+      sources: [ { title: "Happold, E. & Liddell, W. I. (1975). Timber lattice roof for the Mannheim Bundesgartenschau. The Structural Engineer 53(3)", url: "https://en.wikipedia.org/wiki/Multihalle" } ] },
     // ─── 補充:數位形態理論家(批次三) ─────────────────
     { id: "koolhaas", type: "person", name: "Rem Koolhaas", nameEn: "Rem Koolhaas", year: 1982, periodId: "P2",
       summary: "以程式與數據思考建築的旗手 — 從《狂譫紐約》到西雅圖圖書館的圖解方法。",
@@ -300,7 +311,8 @@ window.DATA = {
 
     { id: "parametricism", type: "concept", name: "Parametricism", nameEn: "Parametricism", year: 2008, periodId: "P3",
       summary: "Schumacher 提出的風格主張,將參數化定位為後現代之後的時代風格。",
-      body: "強調 differentiation、correlation、scripting,從美學到都市尺度的全面風格化主張,既被擁護也飽受批評為形式主義。" },
+      body: "強調 differentiation、correlation、scripting,從美學到都市尺度的全面風格化主張,既被擁護也飽受批評為形式主義。",
+      sources: [ { title: "Schumacher, P. (2009). Parametricism: A New Global Style for Architecture and Urban Design. Architectural Design 79(4)", url: "https://doi.org/10.1002/ad.912" } ] },
 
     { id: "heydar", type: "project", name: "Heydar Aliyev 文化中心", nameEn: "Heydar Aliyev Center", year: 2012, periodId: "P3",
       summary: "ZHA 在亞塞拜然完工的曲面地景,是參數化美學的代表作。",
@@ -366,7 +378,8 @@ window.DATA = {
 
     { id: "materialComputation", type: "concept", name: "材料計算", nameEn: "Material Computation", year: 2010, periodId: "P5",
       summary: "將材料行為(彈性、生長、編織力學)納入設計演算法。",
-      body: "由 ICD、Block、Oxman 推動,主張形態應由材料本身的物理性質計算而出,而非先決定形體再尋找材料。" },
+      body: "由 ICD、Block、Oxman 推動,主張形態應由材料本身的物理性質計算而出,而非先決定形體再尋找材料。",
+      sources: [ { title: "Menges, A. (Ed.) (2012). Material Computation: Higher Integration in Morphogenetic Design. Architectural Design 82(2)", url: "https://doi.org/10.1002/ad.1374" } ] },
 
     { id: "icditke", type: "lab", name: "ICD/ITKE Stuttgart", nameEn: "ICD/ITKE", year: 2008, periodId: "P5",
       summary: "斯圖加特大學的計算式設計 + 結構整合實驗室,每年發表研究 Pavilion。",
@@ -721,7 +734,8 @@ window.DATA = {
       body: "PTC 於 1987 年推出,以特徵與約束驅動模型、改參數即重算幾何,奠定日後所有參數化設計工具的核心邏輯。" },
     { id: "animateform", type: "concept", name: "動態形體", nameEn: "Animate Form", year: 1999, periodId: "P2",
       summary: "Greg Lynn 提出以時間、力與運動作為形式變數。",
-      body: "1999 年同名專書主張形體應由力場與運動「生長」而出,而非靜態構圖,是數位形態學的關鍵理論。" },
+      body: "1999 年同名專書主張形體應由力場與運動「生長」而出,而非靜態構圖,是數位形態學的關鍵理論。",
+      sources: [ { title: "Lynn, G. (1999). Animate Form. Princeton Architectural Press", url: "https://en.wikipedia.org/wiki/Greg_Lynn" } ] },
     { id: "hypersurface", type: "concept", name: "超表面", nameEn: "Hypersurface", year: 1998, periodId: "P2",
       summary: "探討資訊與物質、影像與結構交融的表面理論。",
       body: "經 Stephen Perrella 等人提出,主張建築表面同時承載影像、資訊與結構,呼應數位時代的虛實交融。" },
@@ -810,7 +824,8 @@ window.DATA = {
       body: "與伊東豐雄、磯崎新合作,發展以演化式最佳化尋找自由曲面結構形態的方法,如岐阜媒體中心、勞力士學習中心。" },
     { id: "burry", type: "person", name: "Mark Burry", nameEn: "Mark Burry", year: 2003, periodId: "P3",
       summary: "聖家堂的執行建築師,以參數化續建高第未竟之作。",
-      body: "自 1980 年代起以參數化模型解讀並完成高第聖家堂的幾何,著《Scripting Cultures》,推動建築的程式設計文化。" },
+      body: "自 1980 年代起以參數化模型解讀並完成高第聖家堂的幾何,著《Scripting Cultures》,推動建築的程式設計文化。",
+      sources: [ { title: "Burry, M. (2011). Scripting Cultures: Architectural Design and Programming. Wiley", url: "https://doi.org/10.1002/9781118670538" } ] },
     { id: "gc", type: "tool", name: "GenerativeComponents", nameEn: "GenerativeComponents", year: 2003, periodId: "P3",
       summary: "Bentley 的關聯式參數建模平台,早期參數化代表工具。",
       body: "由 Robert Aish 主導,以幾何間的關聯與規則驅動模型,是 Grasshopper 之前最具影響力的參數化系統。" },
@@ -825,7 +840,9 @@ window.DATA = {
       body: "參數化設計的核心機制,模型記錄「如何由 A 生成 B」的關係而非固定座標,是 GenerativeComponents、Grasshopper 的運作原理。" },
     { id: "emergence", type: "concept", name: "湧現", nameEn: "Emergence", year: 2004, periodId: "P3",
       summary: "借自複雜系統,主張形態由簡單規則的互動「湧現」。",
-      body: "經 AA EmTech(Hensel、Menges、Weinstock)引入建築,連結仿生、自組織與計算式形態生成,是數位製造研究的理論橋樑。" },
+      body: "經 AA EmTech(Hensel、Menges、Weinstock)引入建築,連結仿生、自組織與計算式形態生成,是數位製造研究的理論橋樑。",
+      sources: [ { title: "Holland, J. H. (2000). Emergence: From Chaos to Order. Oxford University Press", url: "https://en.wikipedia.org/wiki/Emergence" },
+                 { title: "Weinstock, M. (2010). The Architecture of Emergence. Wiley", url: "https://www.wiley.com/en-us/The+Architecture+of+Emergence-p-9780470066331" } ] },
     { id: "sendai", type: "project", name: "仙台媒體中心", nameEn: "Sendai Mediatheque", year: 2001, periodId: "P3",
       summary: "伊東豐雄以管狀結構解放自由平面的標誌作。",
       body: "13 根晃動的格構鋼管同時是結構、動線與管道,徹底鬆動了柱與牆的傳統,是數位時代結構想像的轉折點。" },
@@ -877,7 +894,8 @@ window.DATA = {
     // ─── P4 演算法生成 補充 ───────────────────────────────
     { id: "terzidis", type: "person", name: "Kostas Terzidis", nameEn: "Kostas Terzidis", year: 2006, periodId: "P4",
       summary: "《Algorithmic Architecture》作者,演算法設計的理論奠基者。",
-      body: "哈佛 GSD 學者,2006《Algorithmic Architecture》主張演算法是一種思考與設計的方式,而非僅是工具。" },
+      body: "哈佛 GSD 學者,2006《Algorithmic Architecture》主張演算法是一種思考與設計的方式,而非僅是工具。",
+      sources: [ { title: "Terzidis, K. (2006). Algorithmic Architecture. Routledge", url: "https://doi.org/10.4324/9780080461298" } ] },
     { id: "piker", type: "person", name: "Daniel Piker", nameEn: "Daniel Piker", year: 2010, periodId: "P4",
       summary: "Kangaroo 物理引擎作者,把即時力學模擬帶進設計。",
       body: "開發 Grasshopper 的 Kangaroo,讓形找、張拉、鬆弛等物理行為能即時互動地驅動形態。" },
@@ -975,7 +993,8 @@ window.DATA = {
       body: "數位製造的核心理念:數位模型即生產指令,CNC、機器手臂與列印機直接讀取,串起設計與營造。" },
     { id: "digitalmateriality", type: "concept", name: "數位物質性", nameEn: "Digital Materiality", year: 2008, periodId: "P5",
       summary: "Gramazio Kohler 提出,讓數位與物質在製造中重新和解。",
-      body: "主張數位資訊透過機器人製造直接寫入材料,材料的堆疊與紋理本身成為數位設計的表現。" },
+      body: "主張數位資訊透過機器人製造直接寫入材料,材料的堆疊與紋理本身成為數位設計的表現。",
+      sources: [ { title: "Gramazio, F., Kohler, M. & Willmann, J. (2014). Digital Materiality in Architecture. Park Books", url: "https://gramaziokohler.arch.ethz.ch" } ] },
     { id: "digitalgrotesque", type: "project", name: "Digital Grotesque", nameEn: "Digital Grotesque", year: 2013, periodId: "P5",
       summary: "Hansmeyer + Dillenburger 以 3D 列印生成的超繁複房間。",
       body: "以演算法細分生成數十億面、再以砂模 3D 列印實體化,展示演算法 → 製造可達到的細節極限。" },
@@ -1178,6 +1197,10 @@ window.DATA = {
   // 關聯 — from / to 都是 entity id
   // label: 創造 / 啟發 / 推動 / 使用 / 主持 / 學於 / 任教於 / 影響 / 演化自
   relations: [
+    // 新物質主義與曼海姆(批次四)
+    { from: "newmaterialism", to: "digitalmateriality",  label: "理論根源" },
+    { from: "newmaterialism", to: "materialComputation", label: "理論根源" },
+    { from: "freiotto",       to: "multihalle",          label: "建造" },
     // 數位形態理論家(批次三)
     { from: "koolhaas",  to: "diagram",          label: "發展" },
     { from: "koolhaas",  to: "deconstructivism", label: "參與" },
